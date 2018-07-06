@@ -1,23 +1,23 @@
 # PORTFOLIO RUBYONRAILS APPLICATION
 
-Ceci est mon Portfolio réaliser avec RubyOnRails
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ > Ceci est une application réaliser avec Ruby On Rails 5 pour créer mon propre portfolio
+ 
+ ### Features
+ 
+ - Real Time Chat pour les commentaires
+ - Blog
+ - Portfolio
+ - Drag and Drop Interface
+ - Sign Up, Sign In
+ 
+ ### Code exemples
+ 
+ ```ruby
+ def situation
+    puts "Il n'y a pas de bonne ou de mauvaise situation"
+ end
+ ```
+ 
+  ```javascript
+ alert('Salut toi);
+ ```
