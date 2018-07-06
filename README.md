@@ -19,5 +19,5 @@
  ```
  
   ```javascript
- alert('Salut toi);
+ alert('Salut toi');
  ```
