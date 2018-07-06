@@ -1,7 +1,6 @@
 # PORTFOLIO RUBYONRAILS APPLICATION
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ceci est mon Portfolio réaliser avec RubyOnRails
 
 Things you may want to cover:
 
