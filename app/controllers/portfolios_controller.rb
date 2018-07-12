@@ -5,6 +5,14 @@ class PortfoliosController < ApplicationController
         @portfolio_items = Portfolio.all
     end
     
+    def php
+       @portfolio_items = Portfolio.php     
+    end 
+    
+    def ruby
+       @portfolio_items = Portfolio.ruby   
+    end
+    
     def new
         @portfolio_item = Portfolio.new
     end
