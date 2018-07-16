@@ -35,6 +35,18 @@
         <%= image_tag @portfolio_item.thumb_image %>
     </div>
 
+    <div>
+        <p>Nom des technologies utilisées</p>
+      <ul>
+         <%= f.fields_for :technologies do |technology_form| %>
+         <li>
+          <%= technology_form.label :name %>
+           <%= technology_form.text_field :name %>
+         </li>
+         <% end %>
+     </ul>
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
