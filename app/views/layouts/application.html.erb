@@ -10,12 +10,18 @@
   </head>
 
   <body>
-      <p class="notice"><%= notice %></p>                                                                                                                             <p class="alert"><%= alert %></p> 
+      <p class="notice"><%= notice %></p>                                                                                               <p class="alert"><%= alert %></p>
+      
+      <%= link_to "Home", root_path %>
+      <%= link_to "Portfolios", portfolios_path %>
+      <%= link_to "Blog", blogs_path %>
       <% if current_user %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <%= link_to "Deconnecter", destroy_user_session_path, method: :delete %>
+        <%= link_to "Editer votre profil", edit_user_registration_path %>
       <% else %>
         <%= link_to "Inscription", new_user_registration_path %>
-        <%= link_to "Login", new_user_session_path %>
+        <%= link_to "Se connecter", new_user_session_path %>
+        
       <% end %>
     <%= yield %>
   </body>
