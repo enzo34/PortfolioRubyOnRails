@@ -15,7 +15,7 @@
       <%= link_to "Home", root_path %>
       <%= link_to "Portfolios", portfolios_path %>
       <%= link_to "Blog", blogs_path %>
-      <% if current_user %>
+      <% if current_user.is_a?(User) %>
         <%= link_to "Deconnecter", destroy_user_session_path, method: :delete %>
         <%= link_to "Editer votre profil", edit_user_registration_path %>
       <% else %>
@@ -24,5 +24,8 @@
         
       <% end %>
     <%= yield %>
+      <% if session[:source] %>
+        <p>Merci de visiter mon site depuis <%= session[:source] %></p>
+      <% end %>
   </body>
 </html>
