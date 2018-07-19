@@ -3,6 +3,7 @@ class PortfoliosController < ApplicationController
     
     def index
         @portfolio_items = Portfolio.all
+        @page_title = "Mon Portfolio"
     end
     
     def php
@@ -45,7 +46,8 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-      
+      @page_title = @portfolio_item.title
+      @seo_keywords = @portfolio_item.body
   end
 
   def destroy
