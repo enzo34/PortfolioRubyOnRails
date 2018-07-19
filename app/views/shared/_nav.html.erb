@@ -4,11 +4,5 @@
     <div><%= link_to "Contact", contact_path %></div>
     <div><%= link_to "Portfolios", portfolios_path %></div>
     <div><%= link_to "Blog", blogs_path %></div>
-    <% if current_user.is_a?(User) %>
-    <div><%= link_to "Deconnecter", destroy_user_session_path, method: :delete %></div>
-    <div><%= link_to "Editer votre profil", edit_user_registration_path %></div>
-    <% else %>
-    <div><%= link_to "Inscription", new_user_registration_path %></div>
-    <div><%= link_to "Se connecter", new_user_session_path %></div>
-    <% end %>
+    <div><%= login_helper %></div>  
  </div>
