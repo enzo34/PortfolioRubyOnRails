@@ -12,7 +12,7 @@
   </head>
 
   <body>
-      <p class="notice"><%= notice %></p>                                                                                               <p class="alert"><%= alert %></p>
+      
       <div>
         <div><%= link_to "Home", root_path %></div>
         <div><%= link_to "A propos", about_me_path %></div>
@@ -28,14 +28,14 @@
         <% end %>
       </div>
       
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       
+      <%= yield %>
       
-     
-        
-
-    <%= yield %>
       <% if session[:source] %>
         <p>Merci de visiter mon site depuis <%= session[:source] %></p>
       <% end %>
+      
   </body>
 </html>
