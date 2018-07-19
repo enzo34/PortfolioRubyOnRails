@@ -10,4 +10,11 @@ module ApplicationHelper
          (link_to "Se connecter", new_user_session_path)
         end 
     end
+    
+    def source_helper(layout_name)
+        if session[:source] 
+            content = "Merci de nous visiter depuis #{session[:source]} bienvenue sur le #{layout_name} de RubyX Dev"
+            content_tag(:p, content, class: "source_content")
+        end  
+    end
 end
