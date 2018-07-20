@@ -32,3 +32,5 @@
 # I want to keep my secrets secrets
 /config/secrets.yml
 
+#For the ide
+.idea/*
