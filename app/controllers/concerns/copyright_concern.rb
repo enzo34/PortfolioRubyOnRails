@@ -1,7 +1,7 @@
 module CopyrightConcern
   extend ActiveSupport::Concern
   def set_copyright
-    @copyright = RubyXDevCopyrightTool::Renderer.copyright 'RubyxDev', 'Tout droit réservé'
+    @copyright = RubyXDevCopyrightTool::Renderer.copyright 'RubyXDev', 'Tout droit réservé'
   end
 
   module RubyXDevCopyrightTool
