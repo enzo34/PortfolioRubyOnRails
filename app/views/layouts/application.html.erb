@@ -12,11 +12,20 @@
   </head>
 
   <body>
-      <%= render "shared/nav", location: 'top' %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-      <%= @copyright %>
-     <%= source_helper("site") %>
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+          <%= render "shared/application_nav" %>
+          <%= yield %>
+          <%= @copyright %>
+          <%= source_helper("site") %>
+
+        </div>
+
+      </div>
+
+    </div>
   </body>
 </html>
