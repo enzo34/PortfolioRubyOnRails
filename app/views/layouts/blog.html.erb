@@ -16,8 +16,9 @@
     <!--Blog header-->
     <div class="blog-header">
       <div class="container">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">An example blog template built with Bootstrap.</p>
+        <h1 class="blog-title">RubyX Blog</h1>
+        <p class="lead blog-description">Bienvenue sur le blog de RubyX Dev ici vous pourrez découvrir nos centres d'intêrets.</p>
+        <%= link_to 'Créer un nouvel article', new_blog_path if logged_in?(:site_admin) %>
       </div>
     </div>
     <!--end blog header-->
@@ -32,8 +33,8 @@
     <!--            start of sidebar-->
                 <div class="col-sm-3 offset-sm-1 blog-sidebar">
                   <div class="sidebar-module sidebar-module-inset">
-                    <h4>About</h4>
-                    <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                    <h4>A propos</h4>
+                    <p>Ce blog ne contient  <em>pas que</em> des articles sur le monde du développement ou des astuces pour développeurs, celui-ci peut aussi en effet parler de cinéma, Jeux vidéo ou Manga suivant les envies du moment.</p>
                   </div>
                   <div class="sidebar-module">
                     <h4>Archives</h4>
@@ -62,7 +63,7 @@
                   </div>
                 </div><!-- /.blog-sidebar -->
     <!--            end of sidebar-->
-
+          </div>
 <!--            start footer-->
             <footer class="blog-footer">
               <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
@@ -75,7 +76,7 @@
           <%= @copyright %>
 
           <%= source_helper("blog") %>
-      </div>
+
     </div>
   </body>
 </html>
