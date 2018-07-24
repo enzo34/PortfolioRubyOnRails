@@ -11,37 +11,15 @@
     <%= javascript_include_tag 'blogs', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
     <%= render "shared/blog_nav" %>
-    <!--Blog header-->
-    <div class="blog-header">
-      <div class="container">
-        <h1 class="blog-title">RubyX Blog</h1>
-        <p class="lead blog-description">Bienvenue sur le blog de RubyX Dev ici vous pourrez découvrir nos centres d'intêrets.</p>
-        <%= link_to 'Créer un nouvel article', new_blog_path if logged_in?(:site_admin) %>
-      </div>
-    </div>
-    <!--end blog header-->
+    <%= render "shared/blog_masthead" %>
     <div class="container">
-
           <div class="row">
             <%= yield %>
             <%= render 'shared/blog_sidebar' %>
           </div>
-
-<!--            start footer-->
-            <footer class="blog-footer">
-              <p>Blog template built for <a href="https://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-              <p>
-                <a href="#">Back to top</a>
-              </p>
-            </footer>
-<!--            end footer-->
-
-          <%= @copyright %>
-
+          <%= render 'shared/blog_footer' %>
           <%= source_helper("blog") %>
-
     </div>
   </body>
 </html>
