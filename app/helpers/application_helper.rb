@@ -1,5 +1,5 @@
 module ApplicationHelper
-    def login_helper style
+    def login_helper style = ' '
         if current_user.is_a?(GuestUser)
          (link_to "Inscription", new_user_registration_path, class:style) +
          (link_to "Se connecter", new_user_session_path, class:style)
