@@ -1,4 +1,4 @@
-<div class="bg-dark" id="navbarHeader">
+<div class="collapse bg-dark" id="navbarHeader">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 py-4">
@@ -7,19 +7,16 @@
       </div>
       <div class="col-sm-4 py-4">
         <ul class="list-unstyled">
-          <li><%= link_to "Home", root_path, class: 'text-white' %></li>
-          <li><%= link_to "A propos de moi", about_me_path, class: 'text-white' %></li>
-          <li><%= link_to "Contact", contact_path, class: 'text-white' %></li>
-          <li><%= link_to "Blog", blogs_path, class: 'text-white' %></li>
-          <li><%= link_to "Portfolio", portfolios_path, class: 'text-white' %></li>
+          <%= nav_helper 'text-white', 'li' %>
           <li><%= login_helper 'text-white'%></li>
         </ul>
       </div>
     </div>
   </div>
 </div>
-<div class="navbar navbar-inverse bg-dark">
+<div class="navbar navbar-dark bg-dark">
   <div class="container d-flex justify-content-between">
+    <a href="#" class="navbar-brand text-white">RubyX Projects</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
