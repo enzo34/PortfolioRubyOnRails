@@ -12,7 +12,7 @@
   </head>
   <body>
       <%= render "shared/portfolio_navbar" %>
-      <%= render "shared/portfolio_masterhead" %>
+      <%= render "shared/portfolio_masterhead" unless logged_in?(:site_admin) %>
       <%= yield %>
       <br />
       <%= render "shared/portfolio_footer" %>
