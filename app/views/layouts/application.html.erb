@@ -15,7 +15,11 @@
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
-
+        <% if @page_title == "Home"%>
+          <div class= "background-main"%></div>
+          <% else %>
+          <div class="background-default" %></div>
+          <% end %>
         <div class="cover-container">
           <%= render "shared/application_nav" %>
           <%= yield %>

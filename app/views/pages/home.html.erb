@@ -1,12 +1,13 @@
-<% if current_user.first_name != "Guest" %>
-<h1>Bonjour <%= current_user.first_name %></h1>
-  <% end %>
-      <div class="inner cover">
-        <h1 class="cover-heading">Bienvenue</h1>
-        <p class="lead">Notre devise est que le développement d'un dite Internet ou d'une application ne devrais pas avoir de secrets pour le client.
-          En passant par RubyX vous aurez une solution clef en main pour votre site ainsi que des compte-rendus du travail effectuer sur votre projet.</p>
-        <p class="lead">
-          <%= link_to "En savoir plus", about_me_path, class: "btn btn-lg btn-secondary" %>
-        </p>
-      </div>
+ <div class="inner cover div-test">
+  <% if current_user.first_name != "Guest" %>
+  <h1>Bonjour <%= current_user.first_name %></h1>
+    <% end %>
+
+          <h1 class="cover-heading">Bienvenue</h1>
+          <p class="lead">Notre devise est que le développement d'un dite Internet ou d'une application ne devrais pas avoir de secrets pour le client.
+            En passant par RubyX vous aurez une solution clef en main pour votre site ainsi que des compte-rendus du travail effectuer sur votre projet.</p>
+          <p class="lead">
+            <%= link_to "En savoir plus", about_me_path, class: "btn btn-lg btn-secondary" %>
+          </p>
+        </div>
 
