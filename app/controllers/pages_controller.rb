@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   def home
       @posts = Blog.all
       @skills = Skill.all
-      @page_title = "Home"
+      @page_title = "Rubyx developpement | Portfolio Enzo Clavelloux"
   end
 
   def about
