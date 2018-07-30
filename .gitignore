@@ -33,6 +33,7 @@
 /config/secrets.yml
 
 #For the ide
+.idea/workspace.xml
 .idea/*
 /public/packs
 /public/packs-test
