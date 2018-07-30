@@ -11,7 +11,7 @@ class Portfolio < ApplicationRecord
     end
 
     def self.by_position
-      order("position DESC")
+      order("position ASC")
     end
 
     scope :ruby, -> { where(subtitle: "Ruby On rails")}
