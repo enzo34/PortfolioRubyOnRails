@@ -26,24 +26,15 @@
     <div class="col-md-6">
 
       <div class="form-group">
-        <%= f.label :main_image %>
-        <%= f.text_area :main_image, class: 'form-control' %>
-      </div>
-
-      <div>
-        <p> previsualisation de l'image principal</p>
-        <%= image_tag @portfolio_item.main_image, class:'img-fluid' %>
+        <label class="btn btn-primary">
+          Enregistrer une image principal <%= f.file_field :main_image, style: 'display:none' %>
+        </label>
       </div>
     </div>
-    <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :thumb_image %>
-        <%= f.text_field :thumb_image, class: 'form-control' %>
-      </div>
-
-      <div>
-        <p> previsualisation de la thumb image</p>
-        <%= image_tag @portfolio_item.thumb_image, class:'img-fluid' %>
+        <label class="btn btn-primary">
+         Choisir une image pour l'apercus <%= f.file_field :thumb_image, style: 'display:none' %>
+        </label>
       </div>
 
     </div>
