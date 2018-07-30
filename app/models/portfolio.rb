@@ -9,7 +9,11 @@ class Portfolio < ApplicationRecord
     def self.php
         where(subtitle: 'PHP')    
     end
-    
+
+    def self.by_position
+      order("position ASC")
+    end
+
     scope :ruby, -> { where(subtitle: "Ruby On rails")}
     
     after_initialize :set_defaults
