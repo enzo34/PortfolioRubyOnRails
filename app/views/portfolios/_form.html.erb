@@ -26,15 +26,15 @@
     <div class="col-md-6">
 
       <div class="form-group">
-        <%= f.label :main_image %>
-        <%= f.file_field :main_image, class: 'form-control', id: 'file-upl', onchange: "ImagePreview" %>
+        <label class="btn btn-primary">
+          Enregistrer une image principal <%= f.file_field :main_image, style: 'display:none' %>
+        </label>
       </div>
-
     </div>
-    <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :thumb_image %>
-        <%= f.file_field :thumb_image, class: 'form-control', id: 'file-upl' %>
+        <label class="btn btn-primary">
+         Choisir une image pour l'apercus <%= f.file_field :thumb_image, style: 'display:none' %>
+        </label>
       </div>
 
     </div>
@@ -66,20 +66,3 @@
 
         <% end %>
   </div>
-
-<script>
-    function ImagePreview() {
-        var PreviewIMG = document.getElementById('img-upl');
-        var UploadFile    =  document.getElementById('file-upl').files[0];
-        var ReaderObj  =  new FileReader();
-        ReaderObj.onloadend = function () {
-            PreviewIMG  = "url("+ ReaderObj.result+")";
-        }
-        if (UploadFile) {
-            ReaderObj.readAsDataURL(UploadFile);
-        } else {
-            PreviewIMG.style.backgroundImage  = "";
-        }
-    }
-
-</script>
