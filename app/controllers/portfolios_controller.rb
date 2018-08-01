@@ -5,7 +5,7 @@ class PortfoliosController < ApplicationController
     
     def index
         @portfolio_items = Portfolio.by_position
-        @page_title = "Mon Portfolio"
+        @page_title = "RubyX Projects"
     end
 
     def sort
@@ -33,8 +33,10 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios_path, notice: 'Votre Portfolio a été créer' }
+        flash[:success] = "Votre portfolio a été créer"
+        format.html { redirect_to portfolios_path }
       else
+        flash[:danger] = "Remplir les champs manquants"
         format.html { render :new }
       end
     end
@@ -47,8 +49,10 @@ class PortfoliosController < ApplicationController
   def update
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
-        format.html { redirect_to portfolios_path, notice: 'Le Portfolio Item a été mis à jour' }
+        flash[:success] = "Le Portfolio as bien été mis à jour"
+        format.html { redirect_to portfolios_path }
       else
+        flash[:danger] = "Remplir les champs manquants"
         format.html { render :edit }
       end
     end
@@ -62,7 +66,8 @@ class PortfoliosController < ApplicationController
  def destroy
       @portfolio_item.destroy
       respond_to do |format|
-          format.html { redirect_to portfolios_url, notice: 'Le portfolio item a été supprimer'}
+          flash[:danger] = "Le portfolio item a été supprimer"
+          format.html {redirect_to portfolios_url}
       end
   end
 

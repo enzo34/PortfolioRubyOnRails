@@ -13,8 +13,12 @@
   <body>
     <%= render "shared/blog_nav" %>
     <%= render "shared/blog_masthead" %>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <div class="container">
           <div class="row">
+
             <%= yield %>
             <%= render 'shared/blog_sidebar' %>
           </div>

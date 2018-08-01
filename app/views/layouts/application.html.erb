@@ -15,6 +15,7 @@
     <div class="site-wrapper">
 
       <div class="site-wrapper-inner">
+
         <% if @page_title == "Rubyx developpement | Portfolio Enzo Clavelloux"%>
           <div class= "background-main"%></div>
           <% else %>
@@ -22,6 +23,11 @@
           <% end %>
         <div class="cover-container">
           <%= render "shared/application_nav" %>
+          <div>
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+          </div>
           <%= yield %>
           <%= source_helper("site") %>
           <%= render "shared/application_footer" %>

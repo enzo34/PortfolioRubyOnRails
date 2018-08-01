@@ -16,6 +16,7 @@
       <% if logged_in?(:site_admin) %>
         <div>
           <%= link_to "Editer le portfolio", edit_portfolio_path(@portfolio_item), class: 'btn btn-warning' %>
+          <%= link_to "Supprimer le portfolio", portfolio_path(@portfolio_item), method: :delete,  class: 'btn btn-danger' %>
         </div>
       <% end %>
     </div>

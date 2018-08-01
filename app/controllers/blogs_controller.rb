@@ -33,8 +33,10 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Votre articles a été créer' }
+        flash[:success] = "Votre article a été créer"
+        format.html { redirect_to @blog }
       else
+        flash[:danger] = "Votre article n'a pas été créer"
         format.html { render :new }
       end
     end
@@ -45,8 +47,10 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'L' + "'" + 'article a été mis à jour' }
+        flash[:success] = "Votre article a été mis à jour"
+        format.html { redirect_to @blog}
       else
+        flash[:danger] = "Votre article n'a pas été créer"
         format.html { render :edit }
       end
     end
