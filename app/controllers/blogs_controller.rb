@@ -17,44 +17,48 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
 
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
-  end
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+    else
+      redirect_to blogs_path, notice: "Forbidden access"
+    end
 
-  # GET /blogs/new
-  def new
-    @blog = Blog.new
-  end
+    # GET /blogs/new
+    def new
+      @blog = Blog.new
+    end
 
-  # GET /blogs/1/edit
-  def edit
-  end
+    # GET /blogs/1/edit
+    def edit
+    end
 
-  # POST /blogs
-  # POST /blogs.json
-  def create
-    @blog = Blog.new(blog_params)
+    # POST /blogs
+    # POST /blogs.json
+    def create
+      @blog = Blog.new(blog_params)
 
-    respond_to do |format|
-      if @blog.save
-        format.html { redirect_to @blog, notice: 'Your post is now live.' }
-      else
-        format.html { render :new }
+      respond_to do |format|
+        if @blog.save
+          format.html { redirect_to @blog, notice: 'Your post is now live.' }
+        else
+          format.html { render :new }
+        end
       end
     end
-  end
 
-  # PATCH/PUT /blogs/1
-  # PATCH/PUT /blogs/1.json
-  def update
-    respond_to do |format|
-      if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
-      else
-        format.html { render :edit }
+    # PATCH/PUT /blogs/1
+    # PATCH/PUT /blogs/1.json
+    def update
+      respond_to do |format|
+        if @blog.update(blog_params)
+          format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
     end
   end
