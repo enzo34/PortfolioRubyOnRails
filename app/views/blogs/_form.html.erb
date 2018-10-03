@@ -1,7 +1,19 @@
 <%= form_with(model: blog) do |f| %>
 
+
   <div class="form-group">
     <%= f.text_field :title, class: 'form-control', placeholder: 'Titre' %> Ce champs est requis
+  </div>
+
+  <div class="form-group">
+    <%= f.label :topic_id %>
+    <%= f.collection_select(:topic_id, Topic.all, :id, :title,
+                              {
+                                include_blank: true
+                              },
+                              class: 'form-control'
+                            )
+    %>
   </div>
 
   <div class="form-group">
