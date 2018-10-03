@@ -1,22 +1,27 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "blog"
-  access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit, :toggle_status]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.page(params[:page]).per(5)
-    @page_title = "Mon Blog"
+    if logged_in?(:site_admin)
+      @blogs = Blog.recent.all
+    else
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
+    @page_title = "My Portfolio Blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-      @blog = Blog.includes(:comments).friendly.find(params[:id])
-      @comment =  Comment.new
-      @page_title = @blog.title
-      @seo_keywords = @blog.body
+    @blog = Blog.includes(:comments).friendly.find(params[:id])
+    @comment = Comment.new
+
+    @page_title = @blog.title
+    @seo_keywords = @blog.body
   end
 
   # GET /blogs/new
@@ -35,10 +40,8 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        flash[:success] = "Votre article a été créer"
-        format.html { redirect_to @blog }
+        format.html { redirect_to @blog, notice: 'Your post is now live.' }
       else
-        flash[:danger] = "Votre article n'a pas été créer"
         format.html { render :new }
       end
     end
@@ -49,10 +52,8 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        flash[:success] = "Votre article a été mis à jour"
-        format.html { redirect_to @blog}
+        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
       else
-        flash[:danger] = "Votre article n'a pas été créer"
         format.html { render :edit }
       end
     end
@@ -63,28 +64,29 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'L' + "'" + 'article a été supprimer' }
+      format.html { redirect_to blogs_url, notice: 'Post was removed.' }
+      format.json { head :no_content }
     end
   end
 
-    
   def toggle_status
-      if @blog.draft?
-          @blog.published!
-      elsif @blog.published?
-          @blog.draft!
-      end
-      redirect_to blogs_url, notice: 'Le status a été mis à jour'
-  end
-  
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.friendly.find(params[:id])
+    if @blog.draft?
+      @blog.published!
+    elsif @blog.published?
+      @blog.draft!
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blog_params
-      params.require(:blog).permit(:title, :body)
-    end
+    redirect_to blogs_url, notice: 'Post status has been updated.'
+  end
+
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog
+    @blog = Blog.friendly.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def blog_params
+    params.require(:blog).permit(:title, :body)
+  end
 end

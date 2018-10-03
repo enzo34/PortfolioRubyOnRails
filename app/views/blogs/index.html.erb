@@ -1,10 +1,6 @@
 <div class="col-sm-8 blog-main">
-  <%= paginate @blogs %>
+  <% paginate @blogs if !logged_in?(:site_admin) %>
   <br />
   <%= render @blogs %>
-  <%= paginate @blogs %>
+  <% paginate @blogs if !logged_in?(:site_admin) %>
 </div>
-
-
-
-
