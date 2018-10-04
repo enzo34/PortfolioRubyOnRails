@@ -1,0 +1,8 @@
+<% if logged_in?(:site_admin) %>
+  <h4>Espace adminsitration</h4>
+  <nav class="breadcrumbs blogcrumb">
+  <span class="blog-post-meta"><%= link_to fa_icon('file-text') + " " + blog.status, toggle_status_blog_path(blog), style: blog_status_color(blog) %></span>
+  <%= link_to fa_icon('pencil-square-o'), edit_blog_path(blog) %>
+  <%= link_to fa_icon('trash'), blog, method: :delete, data: { confirm: ' Voulez-vous suprimer ' + blog.title + ' définitivement' } %>
+</nav>
+<% end %>

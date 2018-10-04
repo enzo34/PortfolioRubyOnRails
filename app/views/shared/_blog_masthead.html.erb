@@ -2,6 +2,6 @@
   <div class="container">
     <h1 class="blog-title"><%= link_to "RubyX Blog", blogs_path %></h1>
     <p class="lead blog-description">Bienvenue sur le blog de RubyX Dev ici vous pourrez découvrir nos centres d'intêrets.</p>
-    <span><%= link_to 'Créer un nouvel article', new_blog_path if logged_in?(:site_admin) %></span>
+    <span><%= link_to fa_icon('plus-square') + " Écrire un article", new_blog_path if logged_in?(:site_admin) %></span>
   </div>
 </div>
