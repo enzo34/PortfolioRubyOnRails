@@ -6,14 +6,14 @@ module ApplicationHelper
         else
          (link_to "Editer votre profil", edit_user_registration_path, class:style) + " " +
          (link_to "Deconnecter", destroy_user_session_path, method: :delete, class:style)
-        end 
+        end
     end
-    
-    def source_helper(layout_name)
-        if session[:source] 
-            content = "Merci de nous visiter depuis #{session[:source]} bienvenue sur le #{layout_name} de RubyX Dev"
-            content_tag(:p, content, class: "source_content")
-        end  
+
+    def source_helper(styles)
+        if session[:source]
+            content = "Merci de nous visiter depuis #{session[:source]} bienvenue sur le site de RubyX Dev, nous vous invitons a nous #{link_to 'contacter', contact_path} si vous souhaitez travaillez avec nous"
+            content_tag(:div, content.html_safe, class: styles)
+        end
     end
 
     def nav_items
