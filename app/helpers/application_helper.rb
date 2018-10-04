@@ -11,7 +11,8 @@ module ApplicationHelper
 
     def source_helper(styles)
         if session[:source]
-            content = "Merci de nous visiter depuis #{session[:source]} bienvenue sur le site de RubyX Dev, nous vous invitons a nous #{link_to 'contacter', contact_path} si vous souhaitez travaillez avec nous"
+            content = "Merci de nous visiter depuis #{session[:source]} bienvenue sur le site de RubyX Dev,
+            nous vous invitons a nous #{link_to 'contacter', contact_path} si vous souhaitez travaillez avec nous"
             content_tag(:div, content.html_safe, class: styles)
         end
     end
