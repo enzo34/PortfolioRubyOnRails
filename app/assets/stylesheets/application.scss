@@ -236,3 +236,25 @@ body {
 {
   color: white;
 }
+
+.app-card-container
+{
+  color: black;
+  text-align: left;
+}
+
+.app-card-container > .card
+{
+  margin: -50px;
+  padding: 20px;
+}
+
+.profile-img
+{
+  border: 1px solid grey;
+}
+
+.app-card-container a
+{
+  color: blue;
+}
