@@ -1,7 +1,19 @@
 @import "bootstrap";
+
+@font-face
+{
+  font-family: 'Lato';
+  src: font-url('Lato-Regular.ttf');
+}
+
+@font-face
+{
+  font-family: 'Roboto Slab';
+  src: font-url('RobotoSlab-Regular.ttf');
+}
 /*
- * Globals
- */
+* Globals
+*/
 
 /* Links */
 a,
@@ -22,17 +34,28 @@ a:hover {
 
 
 /*
- * Base structure
- */
+* Base structure
+*/
 
 html,
 body {
+  font-family: 'Lato', sans-serif;
   height: 100%;
 }
 body {
   color: #fff;
   text-align: center;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6
+{
+  font-family: 'Roboto Slab', serif;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -60,8 +83,8 @@ body {
 
 
 /*
- * Header
- */
+* Header
+*/
 
 .masthead {
   margin-bottom: 2rem;
@@ -104,8 +127,8 @@ body {
 
 
 /*
- * Cover
- */
+* Cover
+*/
 
 .cover {
   padding: 0 1.5rem;
@@ -117,8 +140,8 @@ body {
 
 
 /*
- * Footer
- */
+* Footer
+*/
 
 .mastfoot {
   color: rgba(255,255,255,.5);
@@ -126,8 +149,8 @@ body {
 
 
 /*
- * Affix and center
- */
+* Affix and center
+*/
 
 @media (min-width: 40em) {
   /* Pull out the header and footer */
