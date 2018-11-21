@@ -84,5 +84,3 @@ gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'redis', '~> 4.0', '>= 4.0.1'
 gem 'redcarpet', '~> 3.4'
 gem 'coderay', '~> 1.1', '>= 1.1.2'
-
-ruby "2.5.3"
